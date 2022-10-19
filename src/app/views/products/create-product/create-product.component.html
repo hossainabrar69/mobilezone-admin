@@ -1,0 +1,60 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="6">
+      <c-card class="mb-4">
+        <c-card-body>
+            <form cForm [formGroup]="productForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label cLabel for="model">Model</label>
+                <input cFormControl
+                       formControlName="model"
+                       id="model"
+                       placeholder="Model"
+                       type="Text"
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="details">Details</label>
+                <textarea  formControlName="details"
+                cFormControl id="details" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label cLabel for="formFile">Image (.png, .jpg)</label>
+                <input cFormControl id="formFile" (change)="onFileSelected($event)" type="file" />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="brand">Brand</label>
+                <input cFormControl
+                       formControlName="brand"
+                       id="brand"
+                       placeholder="Brand"
+                       type="Text"
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="price">Price</label>
+                <input cFormControl
+                       formControlName="price"
+                       id="price"
+                       placeholder="Price"
+                       type="Text"
+                />
+              </div>
+              <input cButton color="primary" type="submit">
+            </form>
+        </c-card-body>
+      </c-card>
+    </c-col>
+    <c-col xs="6">
+      <c-card class="mb-4">
+        <c-card-body>
+          <img
+          [src]="photo"
+          alt="{{photo}}"
+          class="d-block w-100"
+          loading="lazy"
+        />
+        </c-card-body>
+        </c-card>
+    </c-col>
+  </c-row>
+  

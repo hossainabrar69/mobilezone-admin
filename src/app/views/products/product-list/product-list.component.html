@@ -1,0 +1,43 @@
+<c-row ngPreserveWhitespaces>
+  <c-container>
+    <c-row class="p-3">
+      <c-col md="10">Products</c-col>
+      <c-col md="2">
+        <button routerLink="/products/create" cButton color="info">Add Product</button>
+      </c-col>
+    </c-row>
+  </c-container>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-body>
+            <table cTable>
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Model</th>
+                <th scope="col">Details</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of productList">
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.model}}</td>
+                <td>{{item.details}}</td>
+                <td>{{item.brand}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                 <a routerLink="/products/edit/{{item.id}}" style="cursor: pointer;"><svg  [cIcon]="icons.cilPen" width="20" title="Edit"></svg></a> 
+                 <a (click)="onDelete(item.id)" style="cursor: pointer;"> <svg [cIcon]="icons.cilTrash" width="20" title="Delete"></svg></a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+        </c-card-body>
+      </c-card>
+    </c-col>
+
+  </c-row>
+  
